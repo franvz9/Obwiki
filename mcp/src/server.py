@@ -84,7 +84,7 @@ async def kb_activate(kb_id: str) -> str:
 
 @mcp.tool()
 async def kb_overview(kb_id: str | None = None) -> str:
-    """返回知识库全局概要：统计 + 最新变化"""
+    """知识库全局概要（统计+最近任务）。首次了解 KB 时优先调用，比 kb_tree 轻量"""
     kid = await _resolve_kb(kb_id)
     dash = await _get(f"/v1/kbs/{kid}/dashboard")
     crystals = await _get(f"/v1/kbs/{kid}/crystals")
@@ -107,7 +107,7 @@ async def kb_overview(kb_id: str | None = None) -> str:
 
 @mcp.tool()
 async def kb_search(query: str, kb_id: str | None = None, limit: int = 20, offset: int = 0) -> str:
-    """FTS5 全文搜索知识库内容"""
+    """FTS5 全文搜索。返回匹配页面路径和摘要。路径格式如 wiki/concepts/xxx.md，用 kb_read 获取全文"""
     kid = await _resolve_kb(kb_id)
     return json.dumps(await _post(f"/v1/kbs/{kid}/search", {
         "query": query, "limit": limit, "offset": offset,
@@ -130,7 +130,11 @@ async def kb_semantic_search(query: str, kb_id: str | None = None, top_n: int = 
 
 @mcp.tool()
 async def kb_read(path: str, kb_id: str | None = None, include_raw: bool = False) -> str:
-    """读取知识库中文件内容。source 页默认跳过 '## 原始文本' 段（摘要约 1-2K），传 include_raw=true 取全文。"""
+    """读取知识库中文件内容。source 页默认跳过全文，传 include_raw=true 取全文。
+
+    路径规则: wiki/concepts/xxx.md (概念), wiki/entities/xxx.md (实体),
+    wiki/crystals/xxx.md (结晶), wiki/sources/xxx.md (源文档),
+    communities/xxx.md (社区)。注意结晶是 wiki/crystals/ 不是 _crystal/。"""
     kid = await _resolve_kb(kb_id)
     data = await _get(f"/v1/files/{kid}/{path}")
     # Default: skip raw text section for source pages
@@ -145,7 +149,7 @@ async def kb_read(path: str, kb_id: str | None = None, include_raw: bool = False
 
 @mcp.tool()
 async def kb_page_links(path: str, kb_id: str | None = None, direction: str = "both") -> str:
-    """获取页面的 [[wikilinks]] 引用和被引用列表"""
+    """获取页面的进出 [[wikilinks]]。out=该页引用谁, in=谁引用该页, both=双向"""
     kid = await _resolve_kb(kb_id)
     return json.dumps(await _get(f"/v1/kbs/{kid}/page-links?path={path}&direction={direction}"), ensure_ascii=False, indent=2)
 

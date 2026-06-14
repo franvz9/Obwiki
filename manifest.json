@@ -1,0 +1,10 @@
+{
+  "id": "obwiki",
+  "name": "ObWiki",
+  "version": "0.2.0",
+  "minAppVersion": "1.5.0",
+  "description": "LLM-driven local knowledge engine — connect, import, and manage your knowledge base",
+  "author": "Franvz9",
+  "authorUrl": "https://github.com/Franvz9/obwiki",
+  "isDesktopOnly": false
+}

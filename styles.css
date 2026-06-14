@@ -1,0 +1,196 @@
+/* LLMWiki Plugin — unified view styles */
+
+.llmwiki-view { padding: 0; overflow-y: auto; height: 100%; }
+
+/* ── Tab Bar ── */
+.llmwiki-tab-bar {
+  display: flex; gap: 2px; padding: 6px 8px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+}
+.llmwiki-tab {
+  padding: 6px 14px; border: none; background: none;
+  color: var(--text-muted); cursor: pointer;
+  border-radius: 4px 4px 0 0; font-size: 0.85em;
+}
+.llmwiki-tab:hover { color: var(--text-normal); background: var(--background-modifier-hover); }
+.llmwiki-tab-active { color: var(--text-accent); border-bottom: 2px solid var(--text-accent); font-weight: 600; }
+
+.llmwiki-tab-body { padding: 12px 16px; }
+
+/* ── Cards ── */
+.llmwiki-card-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.llmwiki-card {
+  flex: 1; min-width: 80px; padding: 10px 12px;
+  border-radius: 6px; background: var(--background-secondary); text-align: center;
+}
+.llmwiki-card-value { font-size: 1.4em; font-weight: 700; color: var(--text-normal); }
+.llmwiki-card-label { font-size: 0.75em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.llmwiki-card-detail { font-size: 0.7em; color: var(--text-faint); margin-top: 2px; }
+
+/* ── Job Card ── */
+.llmwiki-job-card {
+  padding: 10px 12px; margin-bottom: 8px; border-radius: 6px;
+  background: var(--background-secondary); border-left: 3px solid var(--interactive-accent);
+}
+.llmwiki-job-card strong { display: block; margin-bottom: 4px; }
+
+/* ── Table ── */
+.llmwiki-table { width: 100%; border-collapse: collapse; font-size: 0.82em; margin: 8px 0; }
+.llmwiki-table th, .llmwiki-table td { padding: 5px 8px; text-align: left; border-bottom: 1px solid var(--background-modifier-border); }
+.llmwiki-table th { font-size: 0.75em; text-transform: uppercase; color: var(--text-muted); }
+
+/* ── Form elements ── */
+.llmwiki-input {
+  width: 100%; margin-bottom: 6px; padding: 6px 8px;
+  border: 1px solid var(--background-modifier-border); border-radius: 4px;
+  background: var(--background-primary); color: var(--text-normal); font-size: 0.85em;
+}
+.llmwiki-select {
+  width: 100%; margin-bottom: 6px; padding: 4px 6px;
+  border: 1px solid var(--background-modifier-border); border-radius: 4px;
+  background: var(--background-primary); color: var(--text-normal); font-size: 0.85em;
+}
+.llmwiki-btn-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+.llmwiki-btn-row button {
+  padding: 6px 14px; border-radius: 4px; font-size: 0.85em;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-normal); color: var(--text-normal); cursor: pointer;
+}
+.llmwiki-btn-row button:hover { background: var(--interactive-hover); }
+.llmwiki-btn-sm {
+  padding: 2px 8px; font-size: 0.75em; border-radius: 3px; margin-right: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-normal); cursor: pointer;
+}
+.llmwiki-btn-danger { color: var(--color-red); border-color: var(--color-red); }
+
+/* ── Settings rows ── */
+.llmwiki-setting-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.llmwiki-setting-label { width: 140px; font-size: 0.82em; color: var(--text-muted); flex-shrink: 0; text-align: left; }
+.llmwiki-setting-row .llmwiki-input,
+.llmwiki-setting-row .llmwiki-select { flex: 1; margin-bottom: 0; }
+
+/* ── Drop zone ── */
+.llmwiki-drop-zone {
+  border: 2px dashed var(--background-modifier-border); border-radius: 8px;
+  padding: 20px; text-align: center; cursor: pointer; margin: 8px 0;
+}
+.llmwiki-drop-zone.llmwiki-drop-active { border-color: var(--interactive-accent); background: var(--background-secondary); }
+
+/* ── Status ── */
+.llmwiki-ok { color: var(--text-accent); }
+.llmwiki-err { color: var(--color-red); }
+.llmwiki-muted { color: var(--text-muted); font-size: 0.85em; }
+.llmwiki-mono { font-family: var(--font-monospace); font-size: 0.8em; }
+.llmwiki-error { color: var(--color-red); padding: 12px; }
+
+/* ── Section ── */
+.llmwiki-section {
+  margin-bottom: 12px; padding: 8px 12px;
+  border: 1px solid var(--background-modifier-border); border-radius: 6px;
+}
+.llmwiki-section h4 { margin: 4px 0 8px; color: var(--text-muted); font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.llmwiki-section pre {
+  background: var(--background-secondary); padding: 8px 12px; border-radius: 4px;
+  font-size: 0.8em; overflow-x: auto;
+}
+
+/* ── Inline Row (select + button side by side) ── */
+.llmwiki-inline-row {
+  display: flex; gap: 6px; align-items: center; margin-bottom: 6px;
+}
+.llmwiki-select-inline { flex: 1; min-width: 0; padding: 4px 6px; font-size: 0.85em;
+  border: 1px solid var(--background-modifier-border); border-radius: 4px;
+  background: var(--background-primary); color: var(--text-normal);
+  overflow: hidden; text-overflow: ellipsis;
+}
+.llmwiki-inline-row button { flex-shrink: 0; padding: 4px 10px; font-size: 0.82em; white-space: nowrap; }
+
+/* ── Job table fixed result column ── */
+.llmwiki-path-cell,
+.llmwiki-job-table .llmwiki-result-cell {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.llmwiki-job-table td,
+.llmwiki-kb-table td {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.llmwiki-job-table,
+.llmwiki-kb-table {
+  table-layout: fixed;
+}
+.llmwiki-job-table td:last-child,
+.llmwiki-kb-table td:last-child {
+  white-space: nowrap; width: 60px;
+}
+
+/* ── KB Browser ── */
+.llmwiki-browser { font-size: 0.85em; padding: 4px 0; height: 100%; overflow-y: auto; }
+.llmwiki-browser-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 8px; border-bottom: 1px solid var(--background-modifier-border);
+  font-weight: 600;
+}
+.llmwiki-browser-title { font-size: 0.85em; }
+.llmwiki-browser-refresh { font-size: 0.75em; padding: 2px 6px; cursor: pointer; }
+.llmwiki-tree-folder { margin: 1px 0; }
+.llmwiki-tree-file { margin: 1px 0; cursor: pointer; }
+.llmwiki-tree-toggle { cursor: pointer; font-size: 0.75em; margin-right: 2px; color: var(--text-muted); }
+.llmwiki-tree-name { font-size: 0.85em; }
+.llmwiki-tree-ext { font-size: 0.75em; color: var(--text-faint); }
+.llmwiki-tree-children { }
+.llmwiki-file-pdf .llmwiki-tree-name { color: var(--color-red); }
+.llmwiki-file-docx .llmwiki-tree-name { color: var(--color-blue); }
+.llmwiki-file-xlsx .llmwiki-tree-name, .llmwiki-file-csv .llmwiki-tree-name { color: var(--color-green); }
+.llmwiki-file-json .llmwiki-tree-name, .llmwiki-file-html .llmwiki-tree-name { color: var(--color-orange); }
+
+/* ── Provider card ── */
+.llmwiki-provider-card {
+  padding: 8px 10px; margin-bottom: 8px; border-radius: 6px;
+  background: var(--background-secondary); border-left: 3px solid var(--interactive-accent);
+}
+.llmwiki-provider-card strong { font-size: 0.9em; }
+
+/* ── Progress Bar ── */
+.llmwiki-progress-bar {
+  height: 8px; background: var(--background-modifier-border); border-radius: 4px; margin: 4px 0;
+}
+.llmwiki-progress-fill {
+  height: 100%; background: var(--interactive-accent); border-radius: 4px; transition: width 0.3s;
+}
+
+/* ── Multi-select ── */
+.llmwiki-select-multi {
+  width: 100%; max-height: 180px; font-size: 0.82em;
+  border: 1px solid var(--background-modifier-border); border-radius: 4px;
+  background: var(--background-primary); color: var(--text-normal);
+  overflow-y: auto;
+}
+
+/* ── Model checkbox list ── */
+.llmwiki-model-list {
+  max-height: 320px; overflow-y: auto;
+  border: 1px solid var(--background-modifier-border); border-radius: 4px;
+  padding: 6px; margin: 6px 0; background: var(--background-primary);
+}
+.llmwiki-model-row {
+  padding: 3px 6px; font-size: 0.82em; display: flex; align-items: center; gap: 4px;
+}
+.llmwiki-model-row:hover { background: var(--background-modifier-hover); }
+.llmwiki-model-row .llmwiki-mono { flex: 1; }
+
+/* ── Modal ── */
+.llmwiki-modal { max-height: 80vh; overflow-y: auto; }
+.llmwiki-modal h3 { margin: 0 0 8px; }
+.llmwiki-model-header {
+  display: flex; align-items: center; padding: 4px 8px;
+  font-size: 0.8em; font-weight: 600; color: var(--text-muted);
+  border-bottom: 2px solid var(--background-modifier-border);
+}
+.llmwiki-model-name-header { flex: 1; }
+.llmwiki-cap-group { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; flex-shrink: 0; width: 120px; }
+.llmwiki-cap-col { text-align: center; }
+.llmwiki-cap-col input[type="checkbox"] { margin: 0 auto; display: block; }
+.llmwiki-cap-header { font-size: 0.75em; text-align: center; }

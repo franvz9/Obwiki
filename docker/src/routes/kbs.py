@@ -63,9 +63,24 @@ async def delete_kb(kb_id: str, registry: KBRegistry = Depends(get_registry)):
 @router.post("/{kb_id}/initialize")
 async def initialize_kb(kb_id: str, template: str = "general",
                          registry: KBRegistry = Depends(get_registry)):
+<<<<<<< HEAD
     result = await registry.initialize(kb_id, template_id=template)
     if "error" in result:
         raise HTTPException(404, result["error"])
+=======
+    from ..deps import get_scanner
+    result = await registry.initialize(kb_id, template_id=template)
+    if "error" in result:
+        raise HTTPException(404, result["error"])
+    # Auto-scan to index existing wiki pages + inbox files
+    try:
+        kb = await registry.get(kb_id)
+        scanner = await get_scanner()
+        scan_r = await scanner.scan_kb(kb_id, kb.root_path)
+        result["scan"] = scan_r
+    except Exception:
+        pass
+>>>>>>> 1f6943c (fix)
     return result
 
 

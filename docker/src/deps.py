@@ -59,11 +59,8 @@ async def get_scanner():
 
 
 async def get_llm():
-    global _llm
-    if _llm is None:
-        db = await get_db_conn()
-        _llm = await _resolve_llm(db)
-    return _llm
+    db = await get_db_conn()
+    return await _resolve_llm(db)
 
 
 async def _resolve_llm(db):

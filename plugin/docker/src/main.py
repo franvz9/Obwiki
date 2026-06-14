@@ -52,9 +52,8 @@ app.include_router(jobs.router)
 app.include_router(dashboard.router)
 app.include_router(providers.router)
 
-# Mount MCP server as HTTP endpoint (use SSE transport)
-from .mcp.server import mcp as mcp_app
-app.mount("/mcp", mcp_app.sse_app())
+# MCP server runs as separate process via CMD override
+# (SSE ASGI not compatible with FastAPI mount)
 
 
 @app.get("/v1/config")

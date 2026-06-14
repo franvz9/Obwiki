@@ -47,6 +47,15 @@ async def _put(path: str, data: dict) -> dict:
 
 async def _resolve_kb(kb_id: str | None) -> str:
     if kb_id:
+        # If it's a 12-char hex ID, use directly
+        if len(kb_id) == 12 and all(c in "0123456789abcdef" for c in kb_id):
+            return kb_id
+        # Otherwise treat as name → look up ID
+        kbs = await _get("/v1/kbs")
+        for k in (kbs if isinstance(kbs, list) else []):
+            if k.get("name") == kb_id:
+                return k["id"]
+        # Fallback: try as ID anyway
         return kb_id
     kb = await _get("/v1/kbs/active")
     return kb["id"]

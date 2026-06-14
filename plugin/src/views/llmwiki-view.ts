@@ -671,8 +671,9 @@ row.createEl("td",{text: displayPath, cls:"llmwiki-mono llmwiki-path-cell"});
     const mcpJson = JSON.stringify({
       mcpServers: {
         "obwiki-mcp": {
-          type: "sse",
-          url: s.apiUrl + "/mcp/sse"
+          command: "uv",
+          args: ["run", "--directory", pluginDir + "/mcp", "mcp", "run", "src/server.py"],
+          env: { LLMWIKI_API_URL: s.apiUrl }
         }
       }
     }, null, 2);

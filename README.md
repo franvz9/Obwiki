@@ -1,4 +1,4 @@
-# ObWiki v0.2.0
+# ObWiki
 
 LLM 驱动的本地知识引擎。将 Obsidian vault 变成 AI 可操作的结构化知识库。
 

@@ -9,7 +9,7 @@
 
 ### 2. 装插件
 
-将 `obwiki-v0.2.0/` 目录完整复制到 vault 的 `.obsidian/plugins/obwiki/`，启用。
+将 zip 解压后的整个文件夹内容复制到 vault 的 `.obsidian/plugins/obwiki/`，启用。
 
 ### 3. 启动服务
 

@@ -1,1 +1,13 @@
-DESIGN.md
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+node_modules/
+api/data/*.db
+*.DS_Store
+.env
+.DS_Store
+docker/data/
+design/

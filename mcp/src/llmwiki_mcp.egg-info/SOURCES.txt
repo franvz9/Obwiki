@@ -1,8 +1,0 @@
-pyproject.toml
-src/server.py
-src/llmwiki_mcp.egg-info/PKG-INFO
-src/llmwiki_mcp.egg-info/SOURCES.txt
-src/llmwiki_mcp.egg-info/dependency_links.txt
-src/llmwiki_mcp.egg-info/entry_points.txt
-src/llmwiki_mcp.egg-info/requires.txt
-src/llmwiki_mcp.egg-info/top_level.txt

@@ -1,4 +1,4 @@
-# ObWiki v0.2.0
+# ObWiki
 
 LLM 驱动的本地知识引擎——将 Obsidian vault 变成结构化的 AI 可操作知识库。
 
@@ -48,7 +48,6 @@ _inbox/ (源文件)
 ├── plugin/           Obsidian 插件 (含 Docker 配置)
 ├── mcp/              MCP Server (Python, 已集成到 API)
 ├── README.md
-├── DESIGN.md         设计文档
 └── USER_GUIDE.md     用户指南
 ```
 

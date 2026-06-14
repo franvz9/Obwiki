@@ -11,3 +11,4 @@ api/data/*.db
 .DS_Store
 docker/data/
 design/
+mcp/uv.lock
